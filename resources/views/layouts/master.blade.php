@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+
+    <title>Kualitas Tanah</title>
+
+    <link href="{{ asset('/theme/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('/theme/css/ionicons.css' )}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/theme/css/slim.css') }}">
+
+  </head>
+  <body>
+    <div class="slim-header">
+      <div class="container">
+        <div class="slim-header-left">
+          <h2 class="slim-logo"><a href="index.html">slim<span>.</span></a></h2>
+        </div>
+        <div class="slim-header-right">
+          <div class="dropdown dropdown-c">
+            <a href="#" class="logged-user" data-toggle="dropdown">
+              <img src="http://via.placeholder.com/500x500" alt="">
+              <span>Katherine</span>
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <nav class="nav">
+                <a href="page-profile.html" class="nav-link"><i class="icon ion-person"></i> View Profile</a>
+                <a href="page-edit-profile.html" class="nav-link"><i class="icon ion-compose"></i> Edit Profile</a>
+                <a href="page-activity.html" class="nav-link"><i class="icon ion-ios-bolt"></i> Activity Log</a>
+                <a href="page-settings.html" class="nav-link"><i class="icon ion-ios-gear"></i> Account Settings</a>
+                <a href="page-signin.html" class="nav-link"><i class="icon ion-forward"></i> Sign Out</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slim-navbar">
+      <div class="container">
+        @include('layouts.navbar')
+      </div><!-- container -->
+    </div><!-- slim-navbar -->
+
+    <div class="slim-mainpanel">
+      <div class="container">
+        <div class="slim-pageheader">
+          <ol class="breadcrumb slim-breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Lists</li>
+          </ol>
+          <h6 class="slim-pagetitle">Lists</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="slim-footer">
+      <div class="container">
+        <p>Copyright 2018 &copy; All Rights Reserved. Slim Dashboard Template</p>
+        <p>Designed by: <a href="">ThemePixels</a></p>
+      </div>
+    </div>
+
+    <script src="{{ asset('/theme/js/jquery.js') }}"></script>
+    <script src="{{ asset('/theme/js/popper.js') }}"></script>
+    <script src="{{ asset('/theme/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('/theme/js/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('/theme/js/slim.js') }}"></script>
+  </body>
+</html>
