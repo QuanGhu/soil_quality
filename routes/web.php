@@ -19,6 +19,7 @@ Route::get('/register','Auth\RegisterController@registerView')->name('register.v
 
 Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/profilesaya','HomeController@myProfile')->name('myprofile');
 
     Route::group(['namespace' => 'Soil'], function () {
         Route::name('criteria.')->group( function() {
