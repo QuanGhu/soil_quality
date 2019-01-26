@@ -31,6 +31,10 @@ Route::group(['namespace' => 'Web'], function () {
         Route::name('property.')->group( function() {
             Route::group(['prefix' => 'sifat'], function () {
                 Route::get('/','PropertiesController@index')->name('index');
+                Route::post('/list','PropertiesController@list')->name('list');
+                Route::post('/save','PropertiesController@save')->name('save');
+                Route::put('/update','PropertiesController@update')->name('update');
+                Route::delete('/delete','PropertiesController@delete')->name('delete');
 
                 Route::group(['prefix' => 'penyebab'], function () {
                     Route::name('causes.')->group( function() {
