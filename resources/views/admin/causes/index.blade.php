@@ -102,7 +102,7 @@
             }else {
                 $('#id').val(data.id);
                 $('#type').val('PUT');
-                $('#code_name').val(data.code_name);
+                $('#soil_properties_id').val(data.soil_properties_id);
                 $('#name').val(data.name);
                 $('#modalForm').modal('show');
             }

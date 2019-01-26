@@ -14,7 +14,7 @@
                     <div class="control-group">
                         <label class="control-label">Sifat Tanah</label>
                         <div class="controls">
-                            {!! Form::select('soil_properties_id', ['L' => 'Large', 'S' => 'Small'], null, 
+                            {!! Form::select('soil_properties_id', $properties, null, 
                                 ['id' => 'soil_properties_id', 'placeholder' => 'Pilih Kode Sifat Tanah','class' => 'form-control']) !!}
                             <p class="help-block"></p>
                         </div>

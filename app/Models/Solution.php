@@ -12,6 +12,16 @@ class Solution extends Model
         'name','soil_properties_id'
     ];
 
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
+
     public function soilProperty()
     {
         return $this->belongsTo('App\Models\Properties','soil_properties_id');
