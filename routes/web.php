@@ -39,6 +39,10 @@ Route::group(['namespace' => 'Web'], function () {
                 Route::group(['prefix' => 'penyebab'], function () {
                     Route::name('causes.')->group( function() {
                         Route::get('/','CausesController@index')->name('index');
+                        Route::post('/list','CausesController@list')->name('list');
+                        Route::post('/save','CausesController@save')->name('save');
+                        Route::put('/update','CausesController@update')->name('update');
+                        Route::delete('/delete','CausesController@delete')->name('delete');
                     });
                 });
 
