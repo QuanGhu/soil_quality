@@ -33,6 +33,12 @@ Route::group(['namespace' => 'Web'], function () {
                         Route::get('/','CausesController@index')->name('index');
                     });
                 });
+
+                Route::group(['prefix' => 'solusi'], function () {
+                    Route::name('solution.')->group( function() {
+                        Route::get('/','SolutionController@index')->name('index');
+                    });
+                });
             });    
         });
     });
