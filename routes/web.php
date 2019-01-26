@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('layouts.master');
 });
+
+Route::group(['namespace' => 'Web'], function () {
+    
+    Route::group(['namespace' => 'Soil'], function () {
+        Route::name('criteria.')->group( function() {
+            Route::group(['prefix' => 'kriteria'], function () {
+                Route::get('/','CriteriaController@index')->name('index');
+            });    
+        });
+    });
+
+});
+
+    

@@ -5,7 +5,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="widgets.html">
+        <a class="nav-link" href="{{ route('criteria.index') }}">
             <span>Kriteria Tanah</span>
         </a>
     </li>

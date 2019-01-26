@@ -14,7 +14,7 @@
     <link href="{{ asset('/theme/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/theme/css/ionicons.css' )}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/theme/css/slim.css') }}">
-
+    @yield('css')
   </head>
   <body>
     <div class="slim-header">
@@ -71,5 +71,6 @@
     <script src="{{ asset('/theme/js/bootstrap.js') }}"></script>
     <script src="{{ asset('/theme/js/jquery.cookie.js') }}"></script>
     <script src="{{ asset('/theme/js/slim.js') }}"></script>
+    @stack('scripts')
   </body>
 </html>
