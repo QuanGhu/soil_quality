@@ -11,9 +11,11 @@
 
     <title>Kualitas Tanah</title>
 
-    <link href="{{ asset('/theme/css/font-awesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('/theme/css/ionicons.css' )}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('/theme/css/slim.css') }}">
+    <link href="{{ asset('theme/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/css/ionicons.css' )}}" rel="stylesheet">
+    <link href="{{ asset('theme/css/jquery.toast.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/css/sweetalert.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('theme/css/slim.css') }}">
     @yield('css')
   </head>
   <body>
@@ -66,11 +68,16 @@
       </div>
     </div>
 
-    <script src="{{ asset('/theme/js/jquery.js') }}"></script>
-    <script src="{{ asset('/theme/js/popper.js') }}"></script>
-    <script src="{{ asset('/theme/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('/theme/js/jquery.cookie.js') }}"></script>
-    <script src="{{ asset('/theme/js/slim.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('theme/js/popper.js') }}"></script>
+    <script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('theme/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.toast.js') }}"></script>
+    <script src="{{ asset('theme/js/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.sweet-alert.custom.js') }}"></script>
+    <script src="{{ asset('theme/js/slim.js') }}"></script>
     @stack('scripts')
   </body>
 </html>
