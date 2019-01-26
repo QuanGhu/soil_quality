@@ -25,5 +25,5 @@
             </table>
         </div>
     </div>
-    @include('admin.solution.form')
+
 @endsection
