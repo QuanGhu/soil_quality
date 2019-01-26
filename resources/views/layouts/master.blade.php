@@ -52,13 +52,10 @@
     <div class="slim-mainpanel">
       <div class="container">
         <div class="slim-pageheader">
-          <ol class="breadcrumb slim-breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Lists</li>
-          </ol>
-          <h6 class="slim-pagetitle">Lists</h6>
+          @yield('breadcrumbs')
+          <h6 class="slim-pagetitle">@yield('page_title')</h6>
         </div>
+        @yield('content')
       </div>
     </div>
 
