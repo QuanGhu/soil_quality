@@ -72,6 +72,10 @@ Route::group(['namespace' => 'Web'], function () {
                 Route::name('level.')->group( function() {
                     Route::group(['prefix' => 'level'], function () {
                         Route::get('/','UserLevelController@index')->name('index');
+                        Route::post('/list','UserLevelController@list')->name('list');
+                        Route::post('/save','UserLevelController@save')->name('save');
+                        Route::put('/update','UserLevelController@update')->name('update');
+                        Route::delete('/delete','UserLevelController@delete')->name('delete');
                     });
                 });
 
