@@ -66,6 +66,7 @@ Route::group(['namespace' => 'Web'], function () {
                 Route::name('user.')->group( function() {
                     Route::group(['prefix' => 'pengguna'], function () {
                         Route::get('/','UserController@index')->name('index');
+                        Route::post('/list','UserController@list')->name('list');
                     });
                 });
 
