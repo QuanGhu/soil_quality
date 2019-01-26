@@ -53,6 +53,12 @@ Route::group(['namespace' => 'Web'], function () {
                     });
                 });
 
+                Route::name('level.')->group( function() {
+                    Route::group(['prefix' => 'level'], function () {
+                        Route::get('/','UserLevelController@index')->name('index');
+                    });
+                });
+
             });    
         });
 
