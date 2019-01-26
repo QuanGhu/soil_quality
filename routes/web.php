@@ -16,6 +16,7 @@ Route::get('/login','Auth\LoginController@loginView')->name('login.view');
 Route::post('/login','Auth\LoginController@login')->name('login');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/register','Auth\RegisterController@registerView')->name('register.view');
+Route::post('/register','Auth\RegisterController@register')->name('register');
 
 Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
