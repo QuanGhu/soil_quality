@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('layouts.master');
 });
 
+Route::get('/login','Auth\LoginController@loginView')->name('login.view');
+Route::get('/register','Auth\RegisterController@registerView')->name('register.view');
+
 Route::group(['namespace' => 'Web'], function () {
 
     Route::group(['namespace' => 'Soil'], function () {
