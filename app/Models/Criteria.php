@@ -11,4 +11,24 @@ class Criteria extends Model
     protected $fillable = [
         'code_name','name'
     ];
+
+    public function getCodeNameAttribute($value)
+    {
+        return ucwords($value);
+    }
+
+    public function setCodeNameAttribute($value)
+    {
+        $this->attributes['code_name'] = strtolower($value);
+    }
+
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
 }

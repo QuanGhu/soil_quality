@@ -15,6 +15,7 @@
     <link href="{{ asset('theme/css/ionicons.css' )}}" rel="stylesheet">
     <link href="{{ asset('theme/css/jquery.toast.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/css/sweetalert.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/css/dataTables.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('theme/css/slim.css') }}">
     @yield('css')
   </head>

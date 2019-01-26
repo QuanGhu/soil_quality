@@ -21,6 +21,10 @@ Route::group(['namespace' => 'Web'], function () {
         Route::name('criteria.')->group( function() {
             Route::group(['prefix' => 'kriteria'], function () {
                 Route::get('/','CriteriaController@index')->name('index');
+                Route::post('/list','CriteriaController@list')->name('list');
+                Route::post('/save','CriteriaController@save')->name('save');
+                Route::put('/update','CriteriaController@update')->name('update');
+                Route::delete('/delete','CriteriaController@delete')->name('delete');
             });    
         });
 
