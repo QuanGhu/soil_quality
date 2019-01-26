@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master');
-});
 
 Route::get('/login','Auth\LoginController@loginView')->name('login.view');
+Route::post('/login','Auth\LoginController@login')->name('login');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/register','Auth\RegisterController@registerView')->name('register.view');
 
-Route::group(['namespace' => 'Web'], function () {
+Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
     Route::group(['namespace' => 'Soil'], function () {
         Route::name('criteria.')->group( function() {
@@ -91,3 +91,4 @@ Route::group(['namespace' => 'Web'], function () {
 });
 
     
+// Route::get('/home', 'HomeController@index')->name('home');
