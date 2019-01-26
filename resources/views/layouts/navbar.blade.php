@@ -10,7 +10,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="widgets.html">
+        <a class="nav-link" href="{{ route('property.index') }}">
             <span>Sifat Tanah</span>
         </a>
     </li>

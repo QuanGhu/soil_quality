@@ -16,11 +16,17 @@ Route::get('/', function () {
 });
 
 Route::group(['namespace' => 'Web'], function () {
-    
+
     Route::group(['namespace' => 'Soil'], function () {
         Route::name('criteria.')->group( function() {
             Route::group(['prefix' => 'kriteria'], function () {
                 Route::get('/','CriteriaController@index')->name('index');
+            });    
+        });
+
+        Route::name('property.')->group( function() {
+            Route::group(['prefix' => 'sifat'], function () {
+                Route::get('/','PropertiesController@index')->name('index');
             });    
         });
     });
