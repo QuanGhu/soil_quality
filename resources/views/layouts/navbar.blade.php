@@ -9,10 +9,17 @@
             <span>Kriteria Tanah</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('property.index') }}">
+    <li class="nav-item with-sub">
+        <a class="nav-link" href="#">
             <span>Sifat Tanah</span>
         </a>
+        <div class="sub-item">
+            <ul>
+                <li><a href="{{ route('property.index') }}">List Sifat Tanah</a></li>
+                <li><a href="{{ route('property.causes.index') }}">List Penyebab Sifat Tanah</a></li>
+                <li><a href="page-invoice.html">List Solusi Sifat Tanah</a></li>
+            </ul>
+        </div>
     </li>
     <li class="nav-item with-sub">
         <a class="nav-link" href="#">

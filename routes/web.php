@@ -27,6 +27,12 @@ Route::group(['namespace' => 'Web'], function () {
         Route::name('property.')->group( function() {
             Route::group(['prefix' => 'sifat'], function () {
                 Route::get('/','PropertiesController@index')->name('index');
+
+                Route::group(['prefix' => 'penyebab'], function () {
+                    Route::name('causes.')->group( function() {
+                        Route::get('/','CausesController@index')->name('index');
+                    });
+                });
             });    
         });
     });
