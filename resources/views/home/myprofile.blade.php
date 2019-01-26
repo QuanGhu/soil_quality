@@ -21,6 +21,7 @@
                 <div class="card-footer">
                     <div>
                         <a href="">Edit Profil</a>
+                        <a href="">Ganti Password</a>
                     </div>
                 </div>
             </div>
