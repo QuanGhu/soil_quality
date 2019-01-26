@@ -89,6 +89,15 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['namespace' => 'Customer'], function () {
+        Route::name('customer.')->group( function() {
+            Route::group(['prefix' => 'formulir'], function () {
+                Route::get('/','SoilQualityAssessmentController@index')->name('index');
+                Route::get('/new','SoilQualityAssessmentController@new')->name('new');
+            });    
+        });
+    });
+
 });
 
     

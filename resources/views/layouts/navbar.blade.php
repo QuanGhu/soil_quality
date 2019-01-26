@@ -5,6 +5,11 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('customer.index') }}">
+            <span>Formulir</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('criteria.index') }}">
             <span>Kriteria Tanah</span>
         </a>
