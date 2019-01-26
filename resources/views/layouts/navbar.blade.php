@@ -27,7 +27,7 @@
         </a>
         <div class="sub-item">
             <ul>
-                <li><a href="page-profile.html">List Pengguna</a></li>
+                <li><a href="{{ route('admin.user.index') }}">List Pengguna</a></li>
                 <li><a href="page-invoice.html">List Level Pengguna</a></li>
             </ul>
         </div>

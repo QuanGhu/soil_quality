@@ -43,6 +43,21 @@ Route::group(['namespace' => 'Web'], function () {
         });
     });
 
+    Route::group(['namespace' => 'Admin'], function () {
+        Route::name('admin.')->group( function() {
+            Route::group(['prefix' => 'administrator'], function () {
+
+                Route::name('user.')->group( function() {
+                    Route::group(['prefix' => 'pengguna'], function () {
+                        Route::get('/','UserController@index')->name('index');
+                    });
+                });
+
+            });    
+        });
+
+    });
+
 });
 
     
