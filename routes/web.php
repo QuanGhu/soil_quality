@@ -109,6 +109,7 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
                 Route::get('/','SoilQualityAssessmentController@index')->name('index');
                 Route::get('/new','SoilQualityAssessmentController@new')->name('new');
                 Route::post('/analyze','SoilQualityAssessmentController@analyze')->name('analyze');
+                Route::post('/list','SoilQualityAssessmentController@list')->name('result.list');
                 Route::get('/result/{id}','SoilQualityAssessmentController@showResult')->name('result');
             });    
         });

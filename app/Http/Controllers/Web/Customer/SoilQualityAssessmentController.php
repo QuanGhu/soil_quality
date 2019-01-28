@@ -10,6 +10,7 @@ use App\Models\Rule;
 use App\Models\Analyze;
 use App\Models\SubAnalyze;
 use Crud;
+use DataTables;
 
 class SoilQualityAssessmentController extends Controller
 {
@@ -29,6 +30,17 @@ class SoilQualityAssessmentController extends Controller
     {
         return view('user.soilform.new')
         ->with('criterias', Criteria::all());
+    }
+
+    public function list()
+    {
+        return DataTables::of(Crud::getAll($this->analyze, 'created_at', 'desc'))
+        ->addColumn('action', function ($model) {
+            return 
+                '<div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="'.route('customer.result', $model->id).'" class="btn btn-primary pd-x-25">Lihat Hasil</a>
+                </div>';
+        })->addIndexColumn()->make(true);
     }
 
     public function analyze(Request $request)
