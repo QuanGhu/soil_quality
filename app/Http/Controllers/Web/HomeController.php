@@ -34,6 +34,11 @@ class HomeController extends Controller
         return view('home.myprofile');
     }
 
+    public function editProfileView()
+    {
+        return view('home.changeprofile');
+    }
+
     public function changePasswordView()
     {
         return view('home.changepassword');
@@ -64,6 +69,32 @@ class HomeController extends Controller
                 return redirect()->back()->with('danger','Password Lama Salah');
             }
             
+        }
+        catch (\Exception $e) {
+            return redirect()->back()->with('danger',$e->getMessages());
+        }
+    }
+
+    public function changeProfile(Request $request)
+    {
+        try {
+
+            $validate = Validator::make($request->all(),[
+                'name' => 'required|string|min:3',
+                'email' => 'required|email|unique:users,email,'.Auth::user()->id,
+                'address' => 'required|string|min:6',
+                'gender' => 'required'
+            ]);
+
+            if ($validate->fails())
+                return redirect()->back()->withErrors($validate);
+
+            $data = $request->except('_token','_method');
+            $update = Users::where('id', Auth::user()->id)->update($data);
+            
+            return $update 
+                    ? redirect()->route('myprofile')->with('success','Profil Berhasil Diperbaruhi')
+                    : redirect()->back()->with('danger','Gagal');
         }
         catch (\Exception $e) {
             return redirect()->back()->with('danger',$e->getMessages());

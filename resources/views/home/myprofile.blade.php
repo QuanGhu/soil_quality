@@ -42,7 +42,7 @@
                 </div><!-- card-body -->
                 <div class="card-footer">
                     <div>
-                        <a href="">Edit Profil</a>
+                        <a href="{{ route('changeprofile.view') }}">Edit Profil</a>
                         <a href="{{ route('changepassword.view') }}">Ganti Password</a>
                     </div>
                 </div>
