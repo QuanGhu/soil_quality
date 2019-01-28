@@ -36,7 +36,13 @@ class SoilQualityAssessmentController extends Controller
 
     public function list()
     {
-        return DataTables::of(Crud::getWhere($this->analyze, 'user_id', Auth::user()->id)->orderBy('created_at','desc')->get())
+        if(Auth::user()->user_level_id == 1)
+        {
+            $data = Crud::getAll($this->analyze, 'created_at','desc');
+        } else {
+            $data = Crud::getWhere($this->analyze, 'user_id', Auth::user()->id)->orderBy('created_at','desc')->get();
+        }
+        return DataTables::of($data)
         ->addColumn('action', function ($model) {
             return 
                 '<div class="btn-group" role="group" aria-label="Basic example">
@@ -122,7 +128,12 @@ class SoilQualityAssessmentController extends Controller
 
     public function showListReport()
     {
-        $datas = Crud::getWhere($this->analyze, 'user_id', Auth::user()->id)->orderBy('created_at','desc')->get();
+        if(Auth::user()->user_level_id == 1)
+        {
+            $datas = Crud::getAll($this->analyze, 'created_at','desc');
+        } else {
+            $datas = Crud::getWhere($this->analyze, 'user_id', Auth::user()->id)->orderBy('created_at','desc')->get();
+        }
         $pdf = PDF::loadView('pdf.monthly', ['datas' => $datas] );
         return $pdf->stream();
     }
