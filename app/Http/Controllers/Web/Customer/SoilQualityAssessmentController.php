@@ -126,4 +126,11 @@ class SoilQualityAssessmentController extends Controller
         $pdf = PDF::loadView('pdf.monthly', ['datas' => $datas] );
         return $pdf->stream();
     }
+
+    public function printDetail($id)
+    {
+        $data = Crud::getWhere($this->analyze, 'id',$id)->first();
+        $pdf = PDF::loadView('pdf.detail', ['data' => $data] );
+        return $pdf->stream();
+    }
 }

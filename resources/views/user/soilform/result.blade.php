@@ -30,8 +30,10 @@
         </div>
     @endif
     <div class="section-wrapper">
-      {!! Form::open(['id' => 'form', 'class' => 'form-horizontal','route' => 'customer.analyze']) !!}
         <label class="section-title">Formulir Penilaian Sifat Tanah</label>
+        <div class="mg-b-20 pull-right">
+            <a target="_blank" href="{{ route('customer.print.detail', $anaylze->id) }}" class="btn btn-primary">Cetak Data</a>
+        </div>
         <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p>
         <div class="form-layout">
           <div class="row mg-b-25">
@@ -79,6 +81,5 @@
             <a href="{{ route('customer.index') }}" class="btn btn-secondary bd-0">Kembali</a>
           </div>
         </div>
-      {!! Form::close() !!}
     </div>
 @endsection
