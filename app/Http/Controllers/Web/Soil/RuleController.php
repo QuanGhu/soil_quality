@@ -37,7 +37,7 @@ class RuleController extends Controller
             $arr = [];
             foreach($model->rules as $rule)
             {
-                array_push($arr, $rule->criteria->name);
+                array_push($arr, ' '.$rule->criteria->name);
             };
 
             return $arr;
