@@ -10,6 +10,6 @@
     @if(Auth::user()->user_level_id == 1)
         @include('home.admindashboard')
     @else
-        
+        @include('home.userdashboard')
     @endif
 @endsection

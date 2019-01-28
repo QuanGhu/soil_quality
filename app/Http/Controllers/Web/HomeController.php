@@ -22,7 +22,8 @@ class HomeController extends Controller
                 ->with('totalAnalyze', Analyze::count())
                 ->with('totalUser', Users::count());
         } else {
-            return view('home.index');
+            return view('home.index')
+                ->with('anaylises', Analyze::where('user_id', Auth::user()->id )->orderBy('id', 'desc')->take(10)->get());
         }
     }
 
