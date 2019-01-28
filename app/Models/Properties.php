@@ -41,4 +41,9 @@ class Properties extends Model
     {
         return $this->hasMany('App\Models\Solution','soil_properties_id');
     }
+
+    public function rules()
+    {
+        return $this->hasMany('App\Models\Rule','soil_properties_id');
+    }
 }

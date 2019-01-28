@@ -31,4 +31,9 @@ class Criteria extends Model
     {
         $this->attributes['name'] = strtolower($value);
     }
+
+    public function criterias()
+    {
+        return $this->hasMany('App\Models\Rule','soil_criteria_id');
+    }
 }
