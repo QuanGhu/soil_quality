@@ -36,6 +36,20 @@ class RuleController extends Controller
             ->with('data', crud::getWhere($this->table, 'id', $id)->first());
     }
 
+    public function edit($id)
+    {
+        $arrRule = [];
+        $rules = Rule::where('soil_properties_id',$id)->get();
+        foreach($rules as $rule )
+        {
+            array_push($arrRule, $rule->soil_criteria_id);
+        }
+        return view('admin.rule.edit')
+            ->with('property', crud::getWhere($this->table, 'id', $id)->first())
+            ->with('criterias', Criteria::orderBy('code_name','asc')->get())
+            ->with('criteriasChecked', $arrRule);
+    }
+
     public function list()
     {
         return DataTables::of(Crud::base($this->table)->has('rules')->get())
@@ -52,7 +66,7 @@ class RuleController extends Controller
             return 
                 '<div class="btn-group" role="group" aria-label="Basic example">
                     <a href="'.route('property.rule.view', $model->id).'" class="btn btn-primary pd-x-25">Lihat</a>
-                    <a href="#" class="btn btn-warning pd-x-25">Edit</a>
+                    <a href="'.route('property.rule.edit', $model->id).'" class="btn btn-warning pd-x-25">Edit</a>
                 </div>';
         })->addIndexColumn()->make(true);
     }
@@ -71,6 +85,27 @@ class RuleController extends Controller
 
             return $addRule 
                 ? redirect()->route('property.rule.index')->with('success','Ketentuan Baru Berhasil Disimpan')
+                : redirect()->back()->with('danger','Data Cannot Saved')->withInput();
+        }
+        catch (\Exception $e) {
+            return redirect()->back()->with('danger',$e->getMessage())->withInput();
+        }
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $deleteRule = Rule::where('soil_properties_id',$request->soil_properties_id)->delete();
+            foreach($request->soil_criteria_id as $criteria)
+            {
+                $editRule = new Rule;
+                $editRule->soil_properties_id = $request->soil_properties_id;
+                $editRule->soil_criteria_id = $criteria;
+                $editRule->save();
+            }
+
+            return $editRule 
+                ? redirect()->route('property.rule.index')->with('success','Ketentuan Berhasil Diperbaruhi')
                 : redirect()->back()->with('danger','Data Cannot Saved')->withInput();
         }
         catch (\Exception $e) {

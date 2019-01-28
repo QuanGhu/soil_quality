@@ -66,8 +66,10 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
                         Route::get('/','RuleController@index')->name('index');
                         Route::get('/new','RuleController@new')->name('new');
                         Route::get('/view/{id}','RuleController@view')->name('view');
+                        Route::get('/edit/{id}','RuleController@edit')->name('edit');
                         Route::post('/save','RuleController@save')->name('save');
                         Route::post('/list','RuleController@list')->name('list');
+                        Route::put('/update','RuleController@update')->name('update');
                     });
                 });
             });    
