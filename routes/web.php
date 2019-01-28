@@ -108,6 +108,8 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
             Route::group(['prefix' => 'formulir'], function () {
                 Route::get('/','SoilQualityAssessmentController@index')->name('index');
                 Route::get('/new','SoilQualityAssessmentController@new')->name('new');
+                Route::post('/analyze','SoilQualityAssessmentController@analyze')->name('analyze');
+                Route::get('/result/{id}','SoilQualityAssessmentController@showResult')->name('result');
             });    
         });
     });

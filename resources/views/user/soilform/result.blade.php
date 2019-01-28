@@ -31,54 +31,52 @@
     @endif
     <div class="section-wrapper">
       {!! Form::open(['id' => 'form', 'class' => 'form-horizontal','route' => 'customer.analyze']) !!}
-        {!! Form::hidden('user_id', Auth::user()->id) !!}
         <label class="section-title">Formulir Penilaian Sifat Tanah</label>
         <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p>
         <div class="form-layout">
           <div class="row mg-b-25">
             <div class="col-lg-6">
               <div class="form-group">
-                <label class="form-control-label">Nama Lengkap: <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="name" value="{{ Auth::user()->name }}" placeholder="Enter firstname">
+                <label class="form-control-label">Nama Lengkap:</label>
+                <p class="form-control-label" style="color: #000">{{ Auth::user()->name }}</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label class="form-control-label">Email : <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="email" value="{{ Auth::user()->email }}" placeholder="Enter lastname">
+                <label class="form-control-label">Email : </label>
+                <p class="form-control-label" style="color: #000">{{ Auth::user()->email }}</p>
               </div>
             </div>
             <div class="col-lg-8">
               <div class="form-group mg-b-10-force">
-                <label class="form-control-label">Alamat: <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="address" value="{{ Auth::user()->address }}" placeholder="Enter address">
+                <label class="form-control-label">Alamat: </label>
+                <p class="form-control-label" style="color: #000">{{ Auth::user()->address }}</p>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group mg-b-10-force">
-                <label class="form-control-label">Jenis Kelamin: <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="gender" value="{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}" placeholder="Enter address">
+                <label class="form-control-label">Jenis Kelamin:</label>
+                <p class="form-control-label" style="color: #000">{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</p>
               </div>
             </div>
           </div>
 
-          <p class="mg-b-20 mg-sm-b-40">Pilihlah beberapa pilihan berikut yang sesuai dengan kondisi tanah anda</p>
+          <p class="mg-b-20 mg-sm-b-40">Kriteria Yang Dipilih</p>
           <div class="row mg-b-25">
-            @foreach($criterias as $criteria)
-                <div class="col-lg-3">
-                    <label class="ckbox">
-                        <input name="soil_criteria_id[]" type="checkbox" value="{{ $criteria->id }}">
-                        <span>
-                            {{ $criteria->name }}
-                        </span>
-                    </label>
+            @foreach($anaylze->subAnalyzes as $subanalyze)
+                <div class="col-md-3">
+                    <span style="color: #000">{{ $subanalyze->soil_criteria }}</span>
                 </div>
             @endforeach
           </div>
 
+          <div class="mg-b-20 mg-sm-b-40"></div>
+
+          <p class="mg-b-20 mg-sm-b-40">Hasil Analisa Sifat Tanahnya Adalah</p>
+            <h3 class="mg-b-20 mg-sm-b-40">{{ $anaylze->result }}</h3>
+          
           <div class="form-layout-footer">
-            <button class="btn btn-primary bd-0">Liat Hasil Penilaian</button>
-            <a href="{{ route('customer.index') }}" class="btn btn-secondary bd-0">Cancel</a>
+            <a href="{{ route('customer.index') }}" class="btn btn-secondary bd-0">Kembali</a>
           </div>
         </div>
       {!! Form::close() !!}
