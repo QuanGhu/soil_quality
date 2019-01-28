@@ -7,10 +7,32 @@
 @endsection
 @section('page_title','Sifat Tanah')
 @section('content')
+    @if (session()->has('danger'))
+        <div class="alert alert-danger">
+            <strong>Error!</strong>
+            {{ session()->get('danger') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            <strong>Success!</strong>
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="section-wrapper">
         <label class="section">Aturan Sifat Tanah</label>
         <div class="mg-b-20 pull-right">
-            <a href="{{ route('property.rule.new') }}" class="btn btn-primary">Tambah Data</a>
+            <a href="{{ route('property.rule.new') }}" class="btn btn-primary">Tambah Ketentuan Baru</a>
         </div>
         <div class="table-wrapper">
             <table id="dataTable" class="table display responsive nowrap">
