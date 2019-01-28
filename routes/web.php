@@ -109,12 +109,13 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
 
     Route::group(['namespace' => 'Customer'], function () {
         Route::name('customer.')->group( function() {
-            Route::group(['prefix' => 'formulir'], function () {
+            Route::group(['prefix' => 'penilaian'], function () {
                 Route::get('/','SoilQualityAssessmentController@index')->name('index');
                 Route::get('/new','SoilQualityAssessmentController@new')->name('new');
                 Route::post('/analyze','SoilQualityAssessmentController@analyze')->name('analyze');
                 Route::post('/list','SoilQualityAssessmentController@list')->name('result.list');
                 Route::get('/result/{id}','SoilQualityAssessmentController@showResult')->name('result');
+                Route::get('/printlist','SoilQualityAssessmentController@showListReport')->name('print.list');
             });    
         });
     });

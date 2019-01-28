@@ -12,6 +12,7 @@ use App\Models\SubAnalyze;
 use Crud;
 use DataTables;
 use Auth;
+use PDF;
 
 class SoilQualityAssessmentController extends Controller
 {
@@ -117,5 +118,12 @@ class SoilQualityAssessmentController extends Controller
     {
         return view('user.soilform.result')
             ->with('anaylze' , Analyze::where('id', $id)->first());
+    }
+
+    public function showListReport()
+    {
+        $datas = Crud::getWhere($this->analyze, 'user_id', Auth::user()->id)->orderBy('created_at','desc')->get();
+        $pdf = PDF::loadView('pdf.monthly', ['datas' => $datas] );
+        return $pdf->stream();
     }
 }
