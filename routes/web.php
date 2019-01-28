@@ -21,6 +21,8 @@ Route::post('/register','Auth\RegisterController@register')->name('register');
 Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profilesaya','HomeController@myProfile')->name('myprofile');
+    Route::get('/gantipassword','HomeController@changePasswordView')->name('changepassword.view');
+    Route::put('/gantipassword','HomeController@changePasswordProcess')->name('changepassword.process');
 
     Route::group(['namespace' => 'Soil'], function () {
         Route::name('criteria.')->group( function() {

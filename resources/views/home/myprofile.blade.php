@@ -7,6 +7,28 @@
 @endsection
 @section('page_title','Profil Saya')
 @section('content')
+    @if (session()->has('danger'))
+        <div class="alert alert-danger">
+            <strong>Error!</strong>
+            {{ session()->get('danger') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            <strong>Success!</strong>
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="row row-sm">
         <div class="col-lg-8">
             <div class="card card-profile">
@@ -21,7 +43,7 @@
                 <div class="card-footer">
                     <div>
                         <a href="">Edit Profil</a>
-                        <a href="">Ganti Password</a>
+                        <a href="{{ route('changepassword.view') }}">Ganti Password</a>
                     </div>
                 </div>
             </div>
