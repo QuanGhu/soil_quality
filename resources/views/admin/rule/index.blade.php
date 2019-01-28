@@ -10,7 +10,7 @@
     <div class="section-wrapper">
         <label class="section">Aturan Sifat Tanah</label>
         <div class="mg-b-20 pull-right">
-            
+            <a href="{{ route('property.rule.new') }}" class="btn btn-primary">Tambah Data</a>
         </div>
         <div class="table-wrapper">
             <table id="dataTable" class="table display responsive nowrap">

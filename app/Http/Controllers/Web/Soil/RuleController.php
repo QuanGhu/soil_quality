@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Soil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Properties;
+use App\Models\Criteria;
 use DataTables;
 use Crud;
 use Validator;
@@ -21,6 +22,13 @@ class RuleController extends Controller
         return view('admin.rule.index');
     }
 
+    public function new()
+    {
+        return view('admin.rule.new')
+            ->with('properties', Properties::orderBy('code_name','asc')->pluck('name','id'))
+            ->with('criterias', Criteria::orderBy('code_name','asc')->get());
+    }
+
     public function list()
     {
         return DataTables::of(Crud::base($this->table)->has('rules')->get())
@@ -35,4 +43,5 @@ class RuleController extends Controller
                 </div>';
         })->addIndexColumn()->make(true);
     }
+
 }

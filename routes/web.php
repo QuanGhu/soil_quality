@@ -64,6 +64,7 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
                 Route::group(['prefix' => 'ketentuan'], function () {
                     Route::name('rule.')->group( function() {
                         Route::get('/','RuleController@index')->name('index');
+                        Route::get('/new','RuleController@new')->name('new');
                         Route::post('/list','RuleController@list')->name('list');
                     });
                 });
