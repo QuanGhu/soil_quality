@@ -23,6 +23,7 @@
                 <li><a href="{{ route('property.index') }}">List Sifat Tanah</a></li>
                 <li><a href="{{ route('property.causes.index') }}">List Penyebab Sifat Tanah</a></li>
                 <li><a href="{{ route('property.solution.index') }}">List Solusi Sifat Tanah</a></li>
+                <li><a href="{{ route('property.rule.index') }}">List Kentuan Sifat Tanah</a></li>
             </ul>
         </div>
     </li>

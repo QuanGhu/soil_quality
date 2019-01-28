@@ -60,6 +60,13 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
                         Route::delete('/delete','SolutionController@delete')->name('delete');
                     });
                 });
+
+                Route::group(['prefix' => 'ketentuan'], function () {
+                    Route::name('rule.')->group( function() {
+                        Route::get('/','RuleController@index')->name('index');
+                        Route::post('/list','RuleController@list')->name('list');
+                    });
+                });
             });    
         });
     });
