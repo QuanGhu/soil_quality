@@ -12,6 +12,9 @@
         <div class="mg-b-20 pull-right">
             <a href="{{ route('customer.new') }}" class="btn btn-primary">Buat Analisa Baru</a>
         </div>
+        <div class="mg-b-20">
+            <a target="_blank" href="{{ route('customer.print.list') }}" class="btn btn-primary">Cetak Tabel</a>
+        </div>
         <div class="table-wrapper">
             <table id="dataTable" class="table display responsive nowrap">
                 <thead>
