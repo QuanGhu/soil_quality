@@ -20,6 +20,6 @@ class UserController extends Controller
         ->addColumn('level', function($model) {
             return $model->level->name;
         })
-        ->make(true);
+        ->addIndexColumn()->make(true);
     }
 }
