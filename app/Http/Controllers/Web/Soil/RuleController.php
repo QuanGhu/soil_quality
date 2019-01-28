@@ -67,6 +67,7 @@ class RuleController extends Controller
                 '<div class="btn-group" role="group" aria-label="Basic example">
                     <a href="'.route('property.rule.view', $model->id).'" class="btn btn-primary pd-x-25">Lihat</a>
                     <a href="'.route('property.rule.edit', $model->id).'" class="btn btn-warning pd-x-25">Edit</a>
+                    <button type="button" class="btn btn-danger pd-x-25 delete">Hapus</button>
                 </div>';
         })->addIndexColumn()->make(true);
     }
@@ -110,6 +111,21 @@ class RuleController extends Controller
         }
         catch (\Exception $e) {
             return redirect()->back()->with('danger',$e->getMessage())->withInput();
+        }
+        
+    }
+
+    public function delete(Request $request)
+    {
+        try {
+
+            $delete = Rule::where('soil_properties_id',$request->id)->delete();
+            
+            return $delete ? response()->json(['message' => 'Data Berhasil Dihapus'], 200)
+                          : response()->json(['message' => 'Data Gagal Untuk Dihapus'], 400);
+        }
+        catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 400);
         }
     }
 

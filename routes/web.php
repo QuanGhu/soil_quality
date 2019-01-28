@@ -70,6 +70,7 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
                         Route::post('/save','RuleController@save')->name('save');
                         Route::post('/list','RuleController@list')->name('list');
                         Route::put('/update','RuleController@update')->name('update');
+                        Route::delete('/delete','RuleController@delete')->name('delete');
                     });
                 });
             });    
