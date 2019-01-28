@@ -34,13 +34,19 @@ class RuleController extends Controller
     {
         return DataTables::of(Crud::base($this->table)->has('rules')->get())
         ->addColumn('rule', function($model) {
-            return 'Aturan';
+            $arr = [];
+            foreach($model->rules as $rule)
+            {
+                array_push($arr, $rule->criteria->name);
+            };
+
+            return $arr;
         })
         ->addColumn('action', function ($model) {
             return 
                 '<div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-sm btn-primary edit" style="padding: 0.45rem .7rem;"><i class="fa fa-pencil"></i></button>
-                    <button type="button" class="btn btn-sm btn-danger delete" style="padding: 0.45rem .7rem;"><i class="fa fa-trash"></i></button>
+                    <a href="#" class="btn btn-primary pd-x-25">Lihat</a>
+                    <a href="#" class="btn btn-warning pd-x-25">Edit</a>
                 </div>';
         })->addIndexColumn()->make(true);
     }

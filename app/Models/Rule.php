@@ -17,8 +17,8 @@ class Rule extends Model
         return $this->belongsTo('App\Models\Properties','soil_properties_id');
     }
 
-    public function criterias()
+    public function criteria()
     {
-        return $this->belongsToMany('App\Models\Criteria','soil_criteria_id','id');
+        return $this->belongsTo('App\Models\Criteria','soil_criteria_id');
     }
 }
