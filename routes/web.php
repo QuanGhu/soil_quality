@@ -65,6 +65,7 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
                     Route::name('rule.')->group( function() {
                         Route::get('/','RuleController@index')->name('index');
                         Route::get('/new','RuleController@new')->name('new');
+                        Route::get('/view/{id}','RuleController@view')->name('view');
                         Route::post('/save','RuleController@save')->name('save');
                         Route::post('/list','RuleController@list')->name('list');
                     });

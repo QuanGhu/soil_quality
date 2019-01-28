@@ -30,6 +30,12 @@ class RuleController extends Controller
             ->with('criterias', Criteria::orderBy('code_name','asc')->get());
     }
 
+    public function view($id)
+    {
+        return view('admin.rule.view')
+            ->with('data', crud::getWhere($this->table, 'id', $id)->first());
+    }
+
     public function list()
     {
         return DataTables::of(Crud::base($this->table)->has('rules')->get())
@@ -45,7 +51,7 @@ class RuleController extends Controller
         ->addColumn('action', function ($model) {
             return 
                 '<div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="#" class="btn btn-primary pd-x-25">Lihat</a>
+                    <a href="'.route('property.rule.view', $model->id).'" class="btn btn-primary pd-x-25">Lihat</a>
                     <a href="#" class="btn btn-warning pd-x-25">Edit</a>
                 </div>';
         })->addIndexColumn()->make(true);
