@@ -1,9 +1,10 @@
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link" href="widgets.html">
+        <a class="nav-link" href="{{ route('home') }}">
             <span>Beranda</span>
         </a>
     </li>
+    @if(Auth::user()->user_level_id == 1)
     <li class="nav-item">
         <a class="nav-link" href="{{ route('customer.index') }}">
             <span>Formulir</span>
@@ -38,4 +39,11 @@
             </ul>
         </div>
     </li>
+    @else
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('customer.index') }}">
+            <span>Formulir</span>
+        </a>
+    </li>
+    @endif
 </ul>

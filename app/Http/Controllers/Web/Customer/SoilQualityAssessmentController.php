@@ -11,6 +11,7 @@ use App\Models\Analyze;
 use App\Models\SubAnalyze;
 use Crud;
 use DataTables;
+use Auth;
 
 class SoilQualityAssessmentController extends Controller
 {
@@ -34,7 +35,7 @@ class SoilQualityAssessmentController extends Controller
 
     public function list()
     {
-        return DataTables::of(Crud::getAll($this->analyze, 'created_at', 'desc'))
+        return DataTables::of(Crud::getWhere($this->analyze, 'user_id', Auth::user()->id)->orderBy('created_at','desc')->get())
         ->addColumn('action', function ($model) {
             return 
                 '<div class="btn-group" role="group" aria-label="Basic example">

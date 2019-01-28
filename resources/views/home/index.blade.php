@@ -7,5 +7,9 @@
 @endsection
 @section('page_title','')
 @section('content')
-
+    @if(Auth::user()->user_level_id == 1)
+        @include('home.admindashboard')
+    @else
+        
+    @endif
 @endsection
