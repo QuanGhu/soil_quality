@@ -22,4 +22,9 @@ class Users extends Authenticatable
     {
         return $this->belongsTo('App\Models\Level','user_level_id');
     }
+
+    public function analyzes()
+    {
+        return $this->hasMany('App\Models\Analyze','user_id');
+    }
 }
