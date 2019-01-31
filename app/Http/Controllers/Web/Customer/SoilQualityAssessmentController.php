@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Criteria;
-use App\Models\Property;
+use App\Models\Properties;
 use App\Models\Rule;
 use App\Models\Analyze;
 use App\Models\SubAnalyze;
@@ -122,8 +122,11 @@ class SoilQualityAssessmentController extends Controller
 
     public function showResult($id)
     {
+        $analyze = Analyze::where('id', $id)->first();
+        $property = Properties::where('name', $analyze->result)->first();
         return view('user.soilform.result')
-            ->with('anaylze' , Analyze::where('id', $id)->first());
+            ->with('anaylze' , $analyze)
+            ->with('property', $property);
     }
 
     public function showListReport()
@@ -140,8 +143,9 @@ class SoilQualityAssessmentController extends Controller
 
     public function printDetail($id)
     {
-        $data = Crud::getWhere($this->analyze, 'id',$id)->first();
-        $pdf = PDF::loadView('pdf.detail', ['data' => $data] );
+        $analyze = Crud::getWhere($this->analyze, 'id',$id)->first();
+        $property = Properties::where('name', $analyze->result)->first();
+        $pdf = PDF::loadView('pdf.detail', ['anaylze' => $analyze, 'property' => $property] );
         return $pdf->stream();
     }
 }

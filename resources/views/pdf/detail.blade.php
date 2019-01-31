@@ -39,42 +39,68 @@
 <body>
     <h1 style="text-align: center">Laporan Detail Penilaian Tanah</h1>
     <p style="margin-bottom : 20px; margin-top : 40px;">Informasi Data Diri</p>
-    <table class="table mg-b-0">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Jenis Kelamin</th>
-                <th>Alamat</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ Auth::user()->name }}</td>
-                <td>{{ Auth::user()->email }}</td>
-                <td>{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</td>
-                <td>{{ Auth::user()->address }}</td>
-            </tr>
-        </tbody>
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="2" class="text-center">HASIL ANALISA TANAH</td>
+        </tr>
+        <tr>
+            <td colspan="2">DATA PEMILIK :</td>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td>{{ Auth::user()->name }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ Auth::user()->email }}</td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td>{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</td>
+        </tr>
+        <tr>
+            <td>Alamat</td>
+            <td>{{ Auth::user()->address }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">KRITERIA YANG DIPILIH :</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @foreach($anaylze->subAnalyzes as $subanalyze)
+                    <div class="col-md-3">
+                        <span style="color: #000">{{ $subanalyze->soil_criteria }}</span>
+                    </div>
+                @endforeach
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">HASIL ANALISA TERAKHIR :</td>
+        </tr>
+        <tr>
+            <td>Sifat Tanah</td>
+            <td>{{ $anaylze->result }}</td>
+        </tr>
+        <tr>
+            <td>Penyebab</td>
+            <td>
+                <ul>
+                    @foreach($property->causes as $cause)
+                        <li>{{ $cause->name }}</li>
+                    @endforeach
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Solusi</td>
+            <td>
+                <ul>
+                    @foreach($property->solutions as $solution)
+                        <li>{{ $solution->name }}</li>
+                    @endforeach
+                </ul>
+            </td>
+        </tr>
     </table>
-    <p style="margin-bottom : 20px; margin-top : 40px;">Kriteria Yang Dipilih</p>
-    <table class="table mg-b-0">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($data->subAnalyzes as $key => $analyze)
-            <tr>
-                <td>{{ $key+1 }}</td>
-                <td>{{ $analyze->soil_criteria }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <p style="margin-bottom : 20px; margin-top : 40px;">Hasil Analisa Tanah Anda Kemungkinan Bersifat</p>
-    <h2>{{ $data->result }}</h2>
 </body>
 </html>
