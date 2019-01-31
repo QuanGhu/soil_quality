@@ -1,0 +1,42 @@
+@import url('bootstrap.min.css');
+@import url('font-awesome.min.css');
+
+.navbar-default {
+    background-color: #b9dee0;
+    border-color: #b9dee0;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #000;
+    background-color: #a2dfe2;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+
+.website-name {
+    height: 200px;
+    text-align: center;
+    padding: 25px;
+    background-image: url(/assets/img/soil_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    color: #fff;
+}
+
+.login-box {
+    padding: 25px;
+    background: #e2e2e2;
+    margin-top: 55px;
+}
+
+.mg-t-10 {
+    margin-top: 10px;
+}
+
+.mg-b-10 {
+    margin-bottom: 10px;
+}
