@@ -23,7 +23,7 @@
 <body>
     <div class="header">
         <div class="website-name">
-            <h3>Sistem Pakar Penilaian Kualitas Tanah</h3>
+            <h3>Sistem Pakar Mendiagnosa Kesuburan Tanah</h3>
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
