@@ -1,5 +1,6 @@
 @import url('bootstrap.min.css');
 @import url('font-awesome.min.css');
+@import url('dataTables.bootstrap.min.css');
 
 .navbar-default {
     background-color: #b9dee0;

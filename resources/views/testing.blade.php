@@ -54,19 +54,17 @@
         @endif
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="login-box">
-                        <h3 class="signin-title-secondary">Silakan masuk untuk melanjutkan.</h3>
-                        {!! Form::open(['id' => 'form','route' => 'login']) !!}
-                            <div class="form-group">
-                                <input name="email" type="text" class="form-control" placeholder="Masukan email anda">
-                            </div>
-                            <div class="form-group mg-b-50">
-                                <input name="password" type="password" class="form-control" placeholder="Masukan Password Anda">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block btn-signin">Masuk</button>
-                        {!! Form::close() !!}
-                        <p class="mg-b-0">Belum punya akun? <a href="{{ route('register.view') }}">Daftar disini</a></p>
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <td>NO</td>
+                                    <td>KODE KRITERIA</td>
+                                    <td>NAMA</td>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
