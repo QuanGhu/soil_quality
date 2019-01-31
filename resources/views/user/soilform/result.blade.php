@@ -40,7 +40,7 @@
             <div class="col-md-12 mg-t-10">
                 <table class="table table-bordered">
                     <tr style="background-color: #9ecbd0;">
-                        <td colspan="2" class="text-center">HASIL ANALISA TANAH</td>
+                        <td colspan="2" class="text-center">HASIL Diagnosa TANAH</td>
                     </tr>
                     <tr>
                         <td colspan="2">DATA PEMILIK :</td>

@@ -13,10 +13,10 @@
                 <a target="_blank" href="{{ route('customer.print.list') }}" class="btn btn-default">Cetak Tabel</a>
             </div>
             <div class="col-md-6">
-                <a href="{{ route('customer.new') }}" class="btn btn-primary pull-right">Buat Analisa Baru</a>
+                <a href="{{ route('customer.new') }}" class="btn btn-primary pull-right">Buat Diagnosa Baru</a>
             </div>
             <div class="col-md-12">
-                <h4>Riwayat Penilaian Tanah</h4>
+                <h4>Riwayat Diagnosa Tanah</h4>
             </div>
             <div class="col-md-12">
                 <div class="table-responsive">

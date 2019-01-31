@@ -1,7 +1,7 @@
 <ul class="nav navbar-nav">
     <li><a href="{{ route('home') }}"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
     @if(Auth::user()->user_level_id == 1)
-    <li><a href="{{ route('customer.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Analisa Tanah</a></li>
+    <li><a href="{{ route('customer.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Diagnosa Tanah</a></li>
     <li><a href="{{ route('criteria.index') }}"><i class="fa fa-filter" aria-hidden="true"></i> Kriteria Tanah</a></li>
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Sifat Tanah
@@ -23,7 +23,7 @@
     </li>
     <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a></li>
     @else
-    <li><a href="{{ route('customer.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Analisa Tanah</a></li>
+    <li><a href="{{ route('customer.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Diagnosa Tanah</a></li>
     <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a></li>
     @endif
 </ul>
