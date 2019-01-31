@@ -54,6 +54,7 @@ class SoilQualityAssessmentController extends Controller
     public function analyze(Request $request)
     {
         try {
+
             $arrChoosen = [];
 
             foreach($request->soil_criteria_id as $criteria)
@@ -64,16 +65,19 @@ class SoilQualityAssessmentController extends Controller
             }
 
             
+            
             foreach($arrChoosen as $key => $value)
             {
-                if(empty($value))
+                if(empty($value) || $value === "")
                 unset($arrChoosen[$key]);
             }
             
+
             if($arrChoosen)
             {
                 $result = array_count_values($arrChoosen);
                 arsort($result);
+
                 foreach($result as $an => $result)
                 {
                     $modusValue = $an; 
@@ -99,16 +103,17 @@ class SoilQualityAssessmentController extends Controller
             
             $data = $request->all();
             $data['result'] = $result;
-
             $saveAnalyze = Crud::save($this->analyze, $data);
 
             foreach($request->soil_criteria_id as $criteria)
             {
-                $findCriteria = Criteria::where('id', $criteria)->first();
-                $addSubAnalyze = new SubAnalyze;
-                $addSubAnalyze->soil_criteria = $findCriteria->name;
-                $addSubAnalyze->analyze_id = $saveAnalyze->id;
-                $addSubAnalyze->save();
+                if($criteria) {
+                    $findCriteria = Criteria::where('id', $criteria)->first();
+                    $addSubAnalyze = new SubAnalyze;
+                    $addSubAnalyze->soil_criteria = $findCriteria->name;
+                    $addSubAnalyze->analyze_id = $saveAnalyze->id;
+                    $addSubAnalyze->save();
+                }
             }
 
             return $addSubAnalyze 
