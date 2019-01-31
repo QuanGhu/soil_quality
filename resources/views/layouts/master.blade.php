@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="{{ asset('theme/css/jquery.toast.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/css/sweetalert.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 <body>
@@ -37,6 +39,9 @@
     <script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('theme/js/dataTables.bootstrap.js') }}"></script>
     <script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.toast.js') }}"></script>
+    <script src="{{ asset('theme/js/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.sweet-alert.custom.js') }}"></script>
     @stack('scripts')
 </body>
 </html>
