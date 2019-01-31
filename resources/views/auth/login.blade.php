@@ -6,6 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kualitas Tanah</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .website-name {
+            height: 200px;
+            text-align: center;
+            padding: 25px;
+            background-image: url('assets/img/soil_bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-position: center;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
