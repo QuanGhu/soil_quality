@@ -34,8 +34,8 @@
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('theme/js/dataTables.bootstrap.js') }}"></script>
     <script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
     @stack('scripts')
 </body>

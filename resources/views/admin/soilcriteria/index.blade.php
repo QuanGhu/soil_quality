@@ -26,6 +26,7 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
@@ -64,6 +65,7 @@
             var parent1 = $(parent).parent().get( 0 );
             var row = dt.row(parent1);
             var data = row.data();
+            console.log(data);
 
             if($(this).hasClass('delete')) {
                 swal({   
