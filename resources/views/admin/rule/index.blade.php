@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row mg-t-10">
             <div class="col-md-12">
-                <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalForm">Tambah Data</a>
+                <a href="{{ route('property.rule.new') }}" class="btn btn-primary pull-right">Tambah Data</a>
             </div>
             <div class="col-md-12">
                 <h4>Data Aturan Sifat Tanah</h4>

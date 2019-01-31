@@ -29,49 +29,49 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    <div class="section-wrapper">
-        {!! Form::open(['id' => 'form', 'class' => 'form-horizontal','route' => 'property.rule.update','method' => 'PUT']) !!}
-        <label class="section-title">Isian Kriteria Berdasarkan Sifat Tanah</label>
-        <div class="form-layout">
-          <div class="row mg-b-25">
-            <div class="col-lg-6">
-              <div class="form-group">
+    <div class="container">
+        {!! Form::open(['id' => 'form','route' => 'property.rule.update','method' => 'PUT']) !!}
+        <div class="col-md-12">
+            <h4>Isian Kriteria Berdasarkan Sifat Tanah</h4>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
                 <label class="form-control-label">Sifat Tanah: <span class="tx-danger">*</span></label>
                 <h4>{{ $property->name }}</h4>
                 {!! Form::hidden('soil_properties_id', $property->id) !!}
-              </div>
             </div>
-          </div>
-
-          <p class="mg-b-20 mg-sm-b-40">Pilihlah beberapa kriteria berikut yang sesuai dengan sifat tanah</p>
-          <div class="row mg-b-25">
-            @foreach($criterias as $criteria)
-                @if(in_array($criteria->id, $criteriasChecked))
-                    <div class="col-lg-3">
-                        <label class="ckbox">
-                            <input name="soil_criteria_id[]" type="checkbox" value="{{ $criteria->id }}" checked>
-                            <span>
-                                {{ $criteria->name }}
-                            </span>
-                        </label>
-                    </div>
-                @else
-                    <div class="col-lg-3">
-                        <label class="ckbox">
-                            <input name="soil_criteria_id[]" type="checkbox" value="{{ $criteria->id }}">
-                            <span>
-                                {{ $criteria->name }}
-                            </span>
-                        </label>
-                    </div>
-                @endif
-            @endforeach
-          </div>
-
-          <div class="form-layout-footer">
-            <button type="submit" class="btn btn-primary bd-0">Simpan</button>
-            <a href="{{ route('property.rule.index') }}" class="btn btn-secondary bd-0">Batal</a>
-          </div>
+        </div>
+        <div class="col-md-12">
+            <p class="mg-b-20 mg-sm-b-40">Pilihlah beberapa kriteria berikut yang sesuai dengan sifat tanah</p>
+            <div class="row mg-b-25">
+                @foreach($criterias as $criteria)
+                    @if(in_array($criteria->id, $criteriasChecked))
+                        <div class="col-lg-3">
+                            <label class="ckbox">
+                                <input name="soil_criteria_id[]" type="checkbox" value="{{ $criteria->id }}" checked>
+                                <span>
+                                    {{ $criteria->name }}
+                                </span>
+                            </label>
+                        </div>
+                    @else
+                        <div class="col-lg-3">
+                            <label class="ckbox">
+                                <input name="soil_criteria_id[]" type="checkbox" value="{{ $criteria->id }}">
+                                <span>
+                                    {{ $criteria->name }}
+                                </span>
+                            </label>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-layout-footer">
+                <button type="submit" class="btn btn-primary bd-0">Simpan</button>
+                <a href="{{ route('property.rule.index') }}" class="btn btn-secondary bd-0">Batal</a>
+            </div>
         </div>
         {!! Form::close() !!}
     </div>
