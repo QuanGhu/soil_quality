@@ -53,3 +53,8 @@
 .mg-b-20 {
     margin-bottom: 20px;
 }
+
+.card {
+    background-color: #b9dee0;
+    padding: 15px;
+}
