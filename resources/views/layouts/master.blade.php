@@ -8,11 +8,24 @@
     <link href="{{ asset('theme/css/jquery.toast.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/css/sweetalert.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .website-name {
+            height: 200px;
+            text-align: center;
+            padding: 25px;
+            background-image: url('assets/img/soil_bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-position: center;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <div class="website-name">
-            <h3>Sistem Pakar Penilaian Kualitas Tanah</h3>
+            <h3>Sistem Pakar Mendiagnosa Kesuburan Tanah</h3>
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
