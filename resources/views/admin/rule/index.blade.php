@@ -29,23 +29,30 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    <div class="section-wrapper">
-        <label class="section">Aturan Sifat Tanah</label>
-        <div class="mg-b-20 pull-right">
-            <a href="{{ route('property.rule.new') }}" class="btn btn-primary">Tambah Ketentuan Baru</a>
-        </div>
-        <div class="table-wrapper">
-            <table id="dataTable" class="table display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Kode Sifat</th>
-                        <th>Nama</th>
-                        <th>Ketentuan</th>
-                        <th></th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="container">
+        <div class="row mg-t-10">
+            <div class="col-md-12">
+                <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalForm">Tambah Data</a>
+            </div>
+            <div class="col-md-12">
+                <h4>Data Aturan Sifat Tanah</h4>
+            </div>
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Kode Sifat</th>
+                                <th>Nama</th>
+                                <th>Ketentuan</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -71,7 +78,7 @@
                 { data: 'code_name', name: 'code_name' },
                 { data: 'name', name: 'name' },
                 { data: 'rule', name: 'rule' },
-                { data: 'action', name: 'action', "width" : "100px", orderable: false }
+                { data: 'action', name: 'action', "width" : "180px", orderable: false }
             ]
         });
 
