@@ -29,57 +29,79 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    <div class="section-wrapper">
-        <label class="section-title">Formulir Penilaian Sifat Tanah</label>
-        <div class="mg-b-20 pull-right">
-            <a target="_blank" href="{{ route('customer.print.detail', $anaylze->id) }}" class="btn btn-primary">Cetak Data</a>
-        </div>
-        <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p>
-        <div class="form-layout">
-          <div class="row mg-b-25">
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label class="form-control-label">Nama Lengkap:</label>
-                <p class="form-control-label" style="color: #000">{{ Auth::user()->name }}</p>
-              </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ route('customer.index') }}" class="btn btn-default bd-0">Kembali</a>
             </div>
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label class="form-control-label">Email : </label>
-                <p class="form-control-label" style="color: #000">{{ Auth::user()->email }}</p>
-              </div>
+            <div class="col-md-6">
+                <a target="_blank" href="{{ route('customer.print.detail', $anaylze->id) }}" class="btn btn-primary pull-right">Cetak Data</a>
             </div>
-            <div class="col-lg-8">
-              <div class="form-group mg-b-10-force">
-                <label class="form-control-label">Alamat: </label>
-                <p class="form-control-label" style="color: #000">{{ Auth::user()->address }}</p>
-              </div>
+            <div class="col-md-12 mg-t-10">
+                <table class="table table-bordered">
+                    <tr style="background-color: #9ecbd0;">
+                        <td colspan="2" class="text-center">HASIL ANALISA TANAH</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">DATA PEMILIK :</td>
+                    </tr>
+                    <tr>
+                        <td>Nama</td>
+                        <td>{{ Auth::user()->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ Auth::user()->email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>{{ Auth::user()->address }}</td>
+                    </tr>
+                    <tr style="background-color: #9ecbd0;">
+                        <td colspan="2">KRITERIA YANG DIPILIH :</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @foreach($anaylze->subAnalyzes as $subanalyze)
+                                <div class="col-md-3">
+                                    <span style="color: #000">{{ $subanalyze->soil_criteria }}</span>
+                                </div>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr style="background-color: #9ecbd0;">
+                        <td colspan="2">HASIL ANALISA TERAKHIR :</td>
+                    </tr>
+                    <tr>
+                        <td>Sifat Tanah</td>
+                        <td>{{ $anaylze->result }}</td>
+                    </tr>
+                    <tr>
+                        <td>Penyebab</td>
+                        <td>
+                            <ul>
+                                @foreach($property->causes as $cause)
+                                    <li>{{ $cause->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Solusi</td>
+                        <td>
+                            <ul>
+                                @foreach($property->solutions as $solution)
+                                    <li>{{ $solution->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="col-lg-4">
-              <div class="form-group mg-b-10-force">
-                <label class="form-control-label">Jenis Kelamin:</label>
-                <p class="form-control-label" style="color: #000">{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="mg-b-20 mg-sm-b-40">Kriteria Yang Dipilih</p>
-          <div class="row mg-b-25">
-            @foreach($anaylze->subAnalyzes as $subanalyze)
-                <div class="col-md-3">
-                    <span style="color: #000">{{ $subanalyze->soil_criteria }}</span>
-                </div>
-            @endforeach
-          </div>
-
-          <div class="mg-b-20 mg-sm-b-40"></div>
-
-          <p class="mg-b-20 mg-sm-b-40">Hasil Analisa Sifat Tanahnya Adalah</p>
-            <h3 class="mg-b-20 mg-sm-b-40">{{ $anaylze->result }}</h3>
-          
-          <div class="form-layout-footer">
-            <a href="{{ route('customer.index') }}" class="btn btn-secondary bd-0">Kembali</a>
-          </div>
         </div>
     </div>
 @endsection

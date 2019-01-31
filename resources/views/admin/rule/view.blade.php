@@ -29,30 +29,32 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    <div class="section-wrapper">
-        <label class="section-title">Aturan Kriteria Berdasarkan Sifat Tanah</label>
-        <div class="form-layout">
-          <div class="row mg-b-25">
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label class="form-control-label">Sifat Tanah </label>
-                <h4>{{ $data->name }}</h4>
-              </div>
-            </div>
-          </div>
-
-          <p class="mg-b-20 mg-sm-b-40">Kriteria berdasarkan sifat tanah</p>
-          <div class="row mg-b-25">
-            @foreach($data->rules as $rule)
-                <div class="col-md-3">
-                    <span>{{ $rule->criteria->name }}</span>
+    <div class="container">
+        <div class="section-wrapper">
+            <label class="section-title">Aturan Kriteria Berdasarkan Sifat Tanah</label>
+            <div class="form-layout">
+                <div class="row mg-b-25">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                        <label class="form-control-label">Sifat Tanah </label>
+                        <h4>{{ $data->name }}</h4>
+                        </div>
+                    </div>
                 </div>
-            @endforeach
-          </div>
-
-          <div class="form-layout-footer">
-            <a href="{{ route('property.rule.index') }}" class="btn btn-secondary bd-0">Kembali</a>
-          </div>
+    
+                <p class="mg-b-20 mg-sm-b-40">Kriteria berdasarkan sifat tanah</p>
+                <div class="row mg-b-25">
+                @foreach($data->rules as $rule)
+                    <div class="col-md-3">
+                        <span>{{ $rule->criteria->name }}</span>
+                    </div>
+                @endforeach
+                </div>
+    
+                <div class="form-layout-footer">
+                <a href="{{ route('property.rule.index') }}" class="btn btn-default bd-0">Kembali</a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

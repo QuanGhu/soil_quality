@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Criteria;
-use App\Models\Property;
+use App\Models\Properties;
 use App\Models\Rule;
 use App\Models\Analyze;
 use App\Models\SubAnalyze;
@@ -54,6 +54,7 @@ class SoilQualityAssessmentController extends Controller
     public function analyze(Request $request)
     {
         try {
+
             $arrChoosen = [];
 
             foreach($request->soil_criteria_id as $criteria)
@@ -64,16 +65,19 @@ class SoilQualityAssessmentController extends Controller
             }
 
             
+            
             foreach($arrChoosen as $key => $value)
             {
-                if(empty($value))
+                if(empty($value) || $value === "")
                 unset($arrChoosen[$key]);
             }
             
+
             if($arrChoosen)
             {
                 $result = array_count_values($arrChoosen);
                 arsort($result);
+
                 foreach($result as $an => $result)
                 {
                     $modusValue = $an; 
@@ -99,16 +103,17 @@ class SoilQualityAssessmentController extends Controller
             
             $data = $request->all();
             $data['result'] = $result;
-
             $saveAnalyze = Crud::save($this->analyze, $data);
 
             foreach($request->soil_criteria_id as $criteria)
             {
-                $findCriteria = Criteria::where('id', $criteria)->first();
-                $addSubAnalyze = new SubAnalyze;
-                $addSubAnalyze->soil_criteria = $findCriteria->name;
-                $addSubAnalyze->analyze_id = $saveAnalyze->id;
-                $addSubAnalyze->save();
+                if($criteria) {
+                    $findCriteria = Criteria::where('id', $criteria)->first();
+                    $addSubAnalyze = new SubAnalyze;
+                    $addSubAnalyze->soil_criteria = $findCriteria->name;
+                    $addSubAnalyze->analyze_id = $saveAnalyze->id;
+                    $addSubAnalyze->save();
+                }
             }
 
             return $addSubAnalyze 
@@ -122,8 +127,11 @@ class SoilQualityAssessmentController extends Controller
 
     public function showResult($id)
     {
+        $analyze = Analyze::where('id', $id)->first();
+        $property = Properties::where('name', $analyze->result)->first();
         return view('user.soilform.result')
-            ->with('anaylze' , Analyze::where('id', $id)->first());
+            ->with('anaylze' , $analyze)
+            ->with('property', $property);
     }
 
     public function showListReport()
@@ -140,8 +148,9 @@ class SoilQualityAssessmentController extends Controller
 
     public function printDetail($id)
     {
-        $data = Crud::getWhere($this->analyze, 'id',$id)->first();
-        $pdf = PDF::loadView('pdf.detail', ['data' => $data] );
+        $analyze = Crud::getWhere($this->analyze, 'id',$id)->first();
+        $property = Properties::where('name', $analyze->result)->first();
+        $pdf = PDF::loadView('pdf.detail', ['anaylze' => $analyze, 'property' => $property] );
         return $pdf->stream();
     }
 }

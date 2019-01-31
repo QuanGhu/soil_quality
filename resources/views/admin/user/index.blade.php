@@ -7,25 +7,31 @@
 @endsection
 @section('page_title','Data Pengguna')
 @section('content')
-    <div class="section-wrapper">
-        <label class="section">Data Pengguna Yang Terdaftar </label>
-        <div class="table-wrapper">
-            <table id="dataTable" class="table display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Nama Pengguna</th>
-                        <th>Email</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>Level</th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="container">
+        <div class="row mg-t-10">
+            <div class="col-md-12">
+                <h4>Data Pengguna</h4>
+            </div>
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Nama Pengguna</th>
+                                <th>Email</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Alamat</th>
+                                <th>Level</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
 @endsection
 @push('scripts')
 <script>
