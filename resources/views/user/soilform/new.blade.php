@@ -69,7 +69,7 @@
           <div class="row">
             <div class="col-md-12">
                 <div class="bs-wizard clearfix" style="display: none;">
-                  @foreach($properties->rules as $key => $criteria)
+                  @foreach($criterias as $key => $criteria)
                     <?php $aKey = '#step-'.$key; ?>
                     <?php $activeClass = $key == 0 ? 'bs-wizard-step setup-panel active' : 'bs-wizard-step setup-panel disabled'; ?>
                     <?php $firstClass = $key == 0 ? 'first-step bs-wizard-dot' : 'bs-wizard-dot'; ?>
@@ -84,17 +84,17 @@
                 </div>
             </div>
           </div>
-          <?php $arrLength = count($properties->rules) - 1; ?>
-          @foreach($properties->rules as $index => $criteria)
+          <?php $arrLength = count($criterias) - 1; ?>
+          @foreach($criterias as $index => $criteria)
             <?php $stepId = 'step-'.$index; ?>
             <div class="setup-content" id="{{ $stepId }}">
-              <p>Apakah Tanda Anda {{ $criteria->criteria->name }} ? </p>
+              <p>Apakah Tanda Anda {{ $criteria->name }} ? </p>
               <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mg-t-10">
                       <select name="soil_criteria_id[]" class="form-control">
                         <option value="">Silakan Pilih Jawaban Anda</option>
-                        <option value="{{ $criteria->criteria->id }}">IYA</option>
+                        <option value="{{ $criteria->id }}">IYA</option>
                         <option value="">TIDAK</option>
                       </select>
                     </div>
