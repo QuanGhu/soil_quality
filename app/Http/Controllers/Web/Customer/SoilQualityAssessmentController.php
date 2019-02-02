@@ -30,8 +30,9 @@ class SoilQualityAssessmentController extends Controller
 
     public function new()
     {
+        $properties = Properties::orderBy('id','asc')->first();
         return view('user.soilform.new')
-        ->with('criterias', Criteria::all());
+        ->with('properties', $properties);
     }
 
     public function list()

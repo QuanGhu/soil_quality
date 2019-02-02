@@ -25,7 +25,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Tanggal Penilaian</th>
-                                <th>Kemungkinan Sifat Tanah</th>
+                                <th>Sifat Tanah</th>
                                 <th></th>
                             </tr>
                         </thead>

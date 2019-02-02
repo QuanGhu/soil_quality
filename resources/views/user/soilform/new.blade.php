@@ -69,7 +69,7 @@
           <div class="row">
             <div class="col-md-12">
                 <div class="bs-wizard clearfix" style="display: none;">
-                  @foreach($criterias as $key => $criteria)
+                  @foreach($properties->rules as $key => $criteria)
                     <?php $aKey = '#step-'.$key; ?>
                     <?php $activeClass = $key == 0 ? 'bs-wizard-step setup-panel active' : 'bs-wizard-step setup-panel disabled'; ?>
                     <?php $firstClass = $key == 0 ? 'first-step bs-wizard-dot' : 'bs-wizard-dot'; ?>
@@ -84,17 +84,17 @@
                 </div>
             </div>
           </div>
-          <?php $arrLength = count($criterias) - 1; ?>
-          @foreach($criterias as $index => $criteria)
+          <?php $arrLength = count($properties->rules) - 1; ?>
+          @foreach($properties->rules as $index => $criteria)
             <?php $stepId = 'step-'.$index; ?>
             <div class="setup-content" id="{{ $stepId }}">
-              <p>Apakah Tanda Anda {{ $criteria->name }} ? </p>
+              <p>Apakah Tanda Anda {{ $criteria->criteria->name }} ? </p>
               <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mg-t-10">
                       <select name="soil_criteria_id[]" class="form-control">
                         <option value="">Silakan Pilih Jawaban Anda</option>
-                        <option value="{{ $criteria->id }}">IYA</option>
+                        <option value="{{ $criteria->criteria->id }}">IYA</option>
                         <option value="">TIDAK</option>
                       </select>
                     </div>
@@ -114,73 +114,10 @@
               </div>
             </div>
           @endforeach
-          
-          {{-- <div class="setup-content" id="step-2">
-            <p>Step 2</p>
-            <div class="row">
-                <div class="col-md-6">
-                    <button class="btn btn_1 rounded prevBtn pull-right" type="button" style="float:left">Back</button> 
-                </div>
-                <div class="col-md-6">
-                    <button class="btn btn_1 rounded nextBtn pull-right" type="button" style="float:right">Next</button> 
-                </div>
-            </div>
-          </div>
-          <div class="setup-content" id="step-3">
-              <p>Step 3</p>
-              <div class="row">
-                  <div class="col-md-6">
-                      <button class="btn btn_1 rounded prevBtn pull-right" type="button" style="float:left">Back</button> 
-                  </div>
-                  <div class="col-md-6">
-                      <button class="btn btn_1 rounded nextBtn pull-right" type="button" style="float:right">Next</button> 
-                  </div>
-              </div>
-            </div>
-          <div class="setup-content" id="step-4">
-            <p>Step 4</p>
-            <div class="row">
-                <div class="col-md-6">
-                    <button class="btn btn_1 rounded prevBtn pull-right" type="button" style="float:left">Back</button> 
-                </div>
-                <div class="col-md-6">
-                    <button type="button" class="btn_1 rounded pull-right" id="submitForm" style="float:right;">Submit to review</button>
-                </div>
-            </div>
-          </div> --}}
         </div>
       </div>
     </div>
     {!! Form::close() !!}
-    {{-- <div class="section-wrapper">
-      {!! Form::open(['id' => 'form', 'class' => 'form-horizontal','route' => 'customer.analyze']) !!}
-        {!! Form::hidden('user_id', Auth::user()->id) !!}
-        <label class="section-title">Formulir Penilaian Sifat Tanah</label>
-        <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p>
-        <div class="form-layout">
-          
-
-          <p class="mg-b-20 mg-sm-b-40">Pilihlah beberapa pilihan berikut yang sesuai dengan kondisi tanah anda</p>
-          <div class="row mg-b-25">
-            @foreach($criterias as $criteria)
-                <div class="col-lg-3">
-                    <label class="ckbox">
-                        <input name="soil_criteria_id[]" type="checkbox" value="{{ $criteria->id }}">
-                        <span>
-                            {{ $criteria->name }}
-                        </span>
-                    </label>
-                </div>
-            @endforeach
-          </div>
-
-          <div class="form-layout-footer">
-            <button class="btn btn-primary bd-0">Liat Hasil Penilaian</button>
-            <a href="{{ route('customer.index') }}" class="btn btn-secondary bd-0">Cancel</a>
-          </div>
-        </div>
-      {!! Form::close() !!}
-    </div> --}}
 @endsection
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
