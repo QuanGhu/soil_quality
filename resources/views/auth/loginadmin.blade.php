@@ -71,8 +71,8 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-box">
-                        <h3 class="signin-title-secondary">Silakan masuk untuk melanjutkan.</h3>
-                        {!! Form::open(['id' => 'form','route' => 'login.user']) !!}
+                        <h3 class="signin-title-secondary">Halaman Login Ini Hanya Untuk Admin</h3>
+                        {!! Form::open(['id' => 'form','route' => 'login.admin.process']) !!}
                             <div class="form-group">
                                 <input name="email" type="text" class="form-control" placeholder="Masukan email anda">
                             </div>
@@ -81,7 +81,6 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block btn-signin">Masuk</button>
                         {!! Form::close() !!}
-                        <p class="mg-b-0">Belum punya akun? <a href="{{ route('register.view') }}">Daftar disini</a></p>
                     </div>
                 </div>
             </div>

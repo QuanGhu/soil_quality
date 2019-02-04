@@ -15,7 +15,9 @@ Route::get('testing', function () {
 });
 
 Route::get('/login','Auth\LoginController@loginView')->name('login.view');
-Route::post('/login','Auth\LoginController@login')->name('login');
+Route::get('/loginadmin','Auth\LoginController@adminLoginView')->name('login.admin.view');
+Route::post('/loginForUser','Auth\LoginController@loginForUser')->name('login.user');
+Route::post('/loginForAdmin','Auth\LoginController@loginForAdmin')->name('login.admin.process');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/register','Auth\RegisterController@registerView')->name('register.view');
 Route::post('/register','Auth\RegisterController@register')->name('register');
