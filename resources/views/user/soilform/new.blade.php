@@ -38,31 +38,33 @@
         </div>
         <div class="col-md-12">
           <h4>Isian Analisa Tanah</h4>
-          <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p>
+          {{-- <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p> --}}
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label">Nama Lengkap: <span class="tx-danger">*</span></label>
-            <input class="form-control" type="text" name="name" value="{{ Auth::user()->name }}" placeholder="Enter firstname">
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="form-group">
-            <label class="form-control-label">Email : <span class="tx-danger">*</span></label>
-            <input class="form-control" type="text" name="email" value="{{ Auth::user()->email }}" placeholder="Enter lastname">
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="form-group mg-b-10-force">
-            <label class="form-control-label">Alamat: <span class="tx-danger">*</span></label>
-            <input class="form-control" type="text" name="address" value="{{ Auth::user()->address }}" placeholder="Enter address">
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group mg-b-10-force">
-            <label class="form-control-label">Jenis Kelamin: <span class="tx-danger">*</span></label>
-            <input class="form-control" type="text" name="gender" value="{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}" placeholder="Enter address">
-          </div>
+        <div style="display: none">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-control-label">Nama Lengkap: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="name" value="{{ Auth::user()->name }}" placeholder="Enter firstname">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Email : <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="email" value="{{ Auth::user()->email }}" placeholder="Enter lastname">
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Alamat: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="address" value="{{ Auth::user()->address }}" placeholder="Enter address">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Jenis Kelamin: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="gender" value="{{ Auth::user()->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}" placeholder="Enter address">
+                </div>
+              </div>
         </div>
         <div class="col-md-12">
           <p class="mg-b-20 mg-sm-b-40">Jawablah beberapa pertanyaan berikut untuk menganalisa tanah anda</p>
