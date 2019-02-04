@@ -100,4 +100,9 @@ class HomeController extends Controller
             return redirect()->back()->with('danger',$e->getMessages());
         }
     }
+
+    public function articleView()
+    {
+        return view('article');
+    }
 }

@@ -24,6 +24,7 @@ Route::post('/register','Auth\RegisterController@register')->name('register');
 
 Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/artikel', 'HomeController@articleView')->name('article');
     Route::get('/profilesaya','HomeController@myProfile')->name('myprofile');
     Route::get('/editprofile','HomeController@editProfileView')->name('changeprofile.view');
     Route::put('/changeprofile','HomeController@changeProfile')->name('changeprofile');

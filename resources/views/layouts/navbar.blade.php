@@ -24,6 +24,7 @@
     <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a></li>
     @else
     <li><a href="{{ route('customer.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Diagnosa Tanah</a></li>
+    <li><a href="{{ route('article') }}"><i class="fa fa-search" aria-hidden="true"></i> Artikel Kesuburan Tanah</a></li>
     <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a></li>
     @endif
 </ul>
