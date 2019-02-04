@@ -28,6 +28,11 @@ class SoilQualityAssessmentController extends Controller
         return view('user.soilform.index');
     }
 
+    public function regis()
+    {
+        return view('user.soilform.regis');
+    }
+
     public function new()
     {
         return view('user.soilform.new')

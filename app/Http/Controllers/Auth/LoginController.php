@@ -56,7 +56,7 @@ class LoginController extends Controller
         {
             $user = Auth::user();
 
-            return redirect()->route('customer.new');
+            return redirect()->route('customer.regis');
         } else {
             return redirect()->back()->with('danger','Email / Password Salah');
         }
@@ -77,6 +77,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login.view');
+        return redirect()->route('login');
     }
 }

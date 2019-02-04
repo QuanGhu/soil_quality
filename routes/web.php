@@ -14,7 +14,7 @@ Route::get('testing', function () {
     return view('testing');
 });
 
-Route::get('/login','Auth\LoginController@loginView')->name('login.view');
+Route::get('/login','Auth\LoginController@loginView')->name('login');
 Route::get('/loginadmin','Auth\LoginController@adminLoginView')->name('login.admin.view');
 Route::post('/loginForUser','Auth\LoginController@loginForUser')->name('login.user');
 Route::post('/loginForAdmin','Auth\LoginController@loginForAdmin')->name('login.admin.process');
@@ -116,6 +116,7 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
         Route::name('customer.')->group( function() {
             Route::group(['prefix' => 'penilaian'], function () {
                 Route::get('/','SoilQualityAssessmentController@index')->name('index');
+                Route::get('/regis','SoilQualityAssessmentController@regis')->name('regis');
                 Route::get('/new','SoilQualityAssessmentController@new')->name('new');
                 Route::post('/analyze','SoilQualityAssessmentController@analyze')->name('analyze');
                 Route::post('/list','SoilQualityAssessmentController@list')->name('result.list');

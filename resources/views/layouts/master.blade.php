@@ -13,7 +13,7 @@
             height: 200px;
             text-align: center;
             padding: 25px;
-            background-image: url('assets/img/soil_bg.jpg');
+            background-image: url('/assets/img/soil_bg.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             width: 100%;
