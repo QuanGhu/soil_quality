@@ -37,8 +37,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('login.view') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Masuk</a></li>
-                        <li><a href="{{ route('register.view') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Daftar</a></li>
+                            <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Masuk</a></li>
+                            <li><a href="{{ route('login.admin.view') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Masuk Admin</a></li>
+                            <li><a href="{{ route('register.view') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Daftar</a></li>
                     </ul>
                 </div>
             </div>
@@ -105,7 +106,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block btn-signin">Daftar</button>
                         {!! Form::close() !!}
-                        <p class="mg-t-40 mg-b-0">Sudah punya akun? <a href="{{ route('login.view') }}">Masuk disini</a></p>
+                        <p class="mg-t-40 mg-b-0">Sudah punya akun? <a href="{{ route('login') }}">Masuk disini</a></p>
                     </div>
                 </div>
             </div>
