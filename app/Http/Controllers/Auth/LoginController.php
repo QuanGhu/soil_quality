@@ -56,7 +56,7 @@ class LoginController extends Controller
         {
             $user = Auth::user();
 
-            return redirect()->route('customer.regis');
+            return redirect()->route('home');
         } else {
             return redirect()->back()->with('danger','Email / Password Salah');
         }
