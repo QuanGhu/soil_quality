@@ -23,7 +23,7 @@
                     <div class="control-group">
                         <label class="control-label">Nama</label>
                         <div class="controls">
-                            {!! Form::text('name',null,['id' => 'name','class' => 'form-control','required','pattern' => '^[a-zA-Z\s]+$',
+                            {!! Form::text('name',null,['id' => 'name','class' => 'form-control','required',
                                 'data-validation-pattern-message' => 'Mohon masukan data dengan benar', 
                                 'data-validation-required-message' => 'Tulis Kode Disini']) !!}
                             <p class="help-block"></p>
