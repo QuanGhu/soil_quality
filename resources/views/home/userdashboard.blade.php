@@ -1,33 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h4>Hasil Analisa Terakhir</h4>
+            <h4>Artikel Kesuburan Tanah</h4>
         </div>
         <div class="col-md-12">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="tx-10">
-                        <th class="wd-10p pd-y-5">No</th>
-                        <th class="pd-y-5">Tanggal</th>
-                        <th class="pd-y-5">Kemungkinan Sifat Tanah</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($anaylises as $key => $value)
-                        <tr>
-                            <td>{{ $key+1 }}</td>
-                            <td>{{ $value->created_at }}</td>
-                            <td>{{ $value->result }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="3">
-                                Anda Belum Melakukan Analisa
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+            <p>Kesuburan Tanah adalah kemampuan suatu tanah untuk menghasilkan produk tanaman yang diinginkan, pada lingkungan tempat tanah itu berada. Produk tanaman tersebut dapat berupa: buah, biji, daun, bunga, umbi, getah, eksudat, akar, trubus, batang, biomassa, naungan atau penampilan.</p>
+            <p>Tanah memiliki kesuburan yang berbeda-beda tergantung faktor pembentuk tanah yang merajai di lokasi tersebut, yaitu: Bahan induk, Iklim, Relief, Organisme, atau  Waktu. Tanah merupakan fokus utama dalam pembahasan kesuburan tanah, sedangkan tanaman merupakan indikator utama mutu kesuburan tanah.</p>
         </div>
     </div>
 </div>

@@ -105,4 +105,10 @@ class HomeController extends Controller
     {
         return view('article');
     }
+
+    public function lastView()
+    {
+        return view('user.lastresult')
+        ->with('anaylises', Analyze::where('user_id', Auth::user()->id )->orderBy('id', 'desc')->take(10)->get());
+    }
 }

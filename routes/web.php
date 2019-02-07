@@ -116,6 +116,7 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
         Route::name('customer.')->group( function() {
             Route::group(['prefix' => 'penilaian'], function () {
                 Route::get('/','SoilQualityAssessmentController@index')->name('index');
+                Route::get('/terakhir','SoilQualityAssessmentController@lastView')->name('last');
                 Route::get('/regis','SoilQualityAssessmentController@regis')->name('regis');
                 Route::get('/new','SoilQualityAssessmentController@new')->name('new');
                 Route::post('/analyze','SoilQualityAssessmentController@analyze')->name('analyze');
